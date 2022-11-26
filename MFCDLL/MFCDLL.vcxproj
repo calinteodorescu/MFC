@@ -153,7 +153,7 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateMapFile>true</GenerateMapFile>
-      <ModuleDefinitionFile>$(OutDir)\MFCDLL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(OutDir)MFCDLL.def</ModuleDefinitionFile>
       <MapExports>
       </MapExports>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -168,11 +168,11 @@
       <AdditionalDependencies>htmlhelp.lib</AdditionalDependencies>
     </Lib>
     <PreLinkEvent>
-      <Command>cd $(ConfigurationName)
+      <Command>cd $(IntDir)
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
- $(SolutionDir)$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -194,18 +194,18 @@ for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>$(OutDir)\MFCDLL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(OutDir)MFCDLL.def</ModuleDefinitionFile>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
       <GenerateMapFile>true</GenerateMapFile>
       <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
     </Link>
     <PreLinkEvent>
-      <Command>cd $(Platform)\$(ConfigurationName)
+      <Command>cd $(IntDir)
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(SolutionDir)$(Platform)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -225,17 +225,17 @@ $(SolutionDir)$(Platform)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(P
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>$(SolutionDir)\$(Platform)\$(Configuration)\MFCDLL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(OutDir)MFCDLL.def</ModuleDefinitionFile>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
     </Link>
     <PreLinkEvent>
-      <Command>cd $(Platform)\$(ConfigurationName)
+      <Command>cd $(IntDir)
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(SolutionDir)\x64\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -260,7 +260,7 @@ $(SolutionDir)\x64\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>$(OutDir)\MFCDLL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(OutDir)MFCDLL.def</ModuleDefinitionFile>
       <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
       <GenerateMapFile>true</GenerateMapFile>
       <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
@@ -269,11 +269,11 @@ $(SolutionDir)\x64\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform
       <PreprocessorDefinitions>LANG=deu;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <PreLinkEvent>
-      <Command>cd $(ConfigurationName)
+      <Command>cd $(IntDir)
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(SolutionDir)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -298,17 +298,17 @@ $(SolutionDir)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Configuratio
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>$(OutDir)\MFCDLL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(OutDir)MFCDLL.def</ModuleDefinitionFile>
       <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
       <GenerateMapFile>true</GenerateMapFile>
       <MapFileName>$(OutDir)$(TargetName).map</MapFileName>
     </Link>
     <PreLinkEvent>
-      <Command>cd $(Platform)\$(ConfigurationName)
+      <Command>cd $(IntDir)
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(SolutionDir)$(Platform)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -332,15 +332,15 @@ $(SolutionDir)$(Platform)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(P
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>$(SolutionDir)\$(Platform)\$(Configuration)\MFCDLL.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(OutDir)MFCDLL.def</ModuleDefinitionFile>
       <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
     </Link>
     <PreLinkEvent>
-      <Command>cd $(Platform)\$(ConfigurationName)
+      <Command>cd $(IntDir)
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(SolutionDir)\x64\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
