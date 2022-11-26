@@ -15,76 +15,11 @@ _TEXT	SEGMENT
 
 ;_AfxDispatchCall(AFX_PMSG , void* , UINT )
 
-
-
-
 _AfxDispatchCall PROC
-
 
 	; at this point RCX contains value of pfn, RDX contains value of pArgs 
 	; and R8 contains value of nSizeArgs.
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	; get the return address
 	mov rax, qword ptr [rsp]
 
@@ -93,7 +28,6 @@ _AfxDispatchCall PROC
 
 	; set the new stack pointer
 	lea rsp, qword ptr [rdx-8]
-
 
 	; save the pfn
 	mov rax, rcx
@@ -109,27 +43,11 @@ _AfxDispatchCall PROC
 	mov r8,  qword ptr [rdx+16]
 	mov r9,  qword ptr [rdx+24]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	; Or, finally load up RDX and jump to the function
+	; Finally load up RDX
 	mov rdx, qword ptr [rdx+8]
+
+	; jump to the function
 	jmp rax
-
-	; above JMP does not return
-	; ret
-
 
 _AfxDispatchCall ENDP
 
