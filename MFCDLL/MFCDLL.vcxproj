@@ -1246,6 +1246,9 @@ $(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
     <ProjectReference Include="..\dumpexts\dumpexts.vcxproj">
       <Project>{bbce167e-22c4-4793-94ac-da9111360a43}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\MFCstatic\MFCstatic.vcxproj">
+      <Project>{0b0248f4-287b-448b-bb2d-468027f09e3e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
