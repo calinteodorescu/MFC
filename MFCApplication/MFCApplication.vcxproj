@@ -151,6 +151,7 @@
       <BrowseInformation>true</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalIncludeDirectories>D:\Work\Git\Projects\Loluca\Infrastructure;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -188,6 +189,7 @@
       <BrowseInformation>true</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <AdditionalIncludeDirectories>D:\Work\Git\Projects\Loluca\Infrastructure;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -264,6 +266,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <BrowseInformation>true</BrowseInformation>
       <AdditionalIncludeDirectories>D:\Work\Git\Projects\Loluca\Infrastructure;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -302,6 +305,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <BrowseInformation>true</BrowseInformation>
       <AdditionalIncludeDirectories>D:\Work\Git\Projects\Loluca\Infrastructure;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
