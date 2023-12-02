@@ -9,7 +9,7 @@
 #include "MFCApplication.h"
 #include "MainFrm.h"
 
-#include <Common/Utilities.h >
+#include <Common/Utilities.h>
 
 #include "MFCApplicationDoc.h"
 #include "MFCApplicationView.h"
