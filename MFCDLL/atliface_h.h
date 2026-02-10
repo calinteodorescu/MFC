@@ -3,11 +3,11 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0622 */
+ /* File created by MIDL compiler version 8.01.0628 */
 /* at Mon Jan 18 22:14:07 2038
  */
-/* Compiler settings for C:\Tools\Microsoft\Visual Studio\2019.Professional\VC\Tools\MSVC\14.29.30133\\atlmfc\include\atliface.idl:
-    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
+/* Compiler settings for C:\Tools\Microsoft\Visual Studio\2026.Enterprise\VC\Tools\MSVC\14.50.35717\\atlmfc\include\atliface.idl:
+    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0628 
     protocol : all , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -40,6 +40,14 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
+#endif
+
+#ifndef DECLSPEC_XFGVIRT
+#if defined(_CONTROL_FLOW_GUARD_XFG)
+#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
+#else
+#define DECLSPEC_XFGVIRT(base, func)
+#endif
 #endif
 
 /* Forward Declarations */ 
@@ -128,8 +136,6 @@ extern "C"{
 /* [local] */ 
 
 EXTERN_C const CLSID CLSID_Registrar;
-#pragma external_header(push)
-#pragma external_header(pop)
 
 
 extern RPC_IF_HANDLE __MIDL_itf_atliface_0000_0000_v0_0_c_ifspec;
@@ -165,23 +171,28 @@ EXTERN_C const IID IID_IRegistrarBase;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IRegistrarBase * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IRegistrarBase * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IRegistrarBase * This);
         
+        DECLSPEC_XFGVIRT(IRegistrarBase, AddReplacement)
         HRESULT ( STDMETHODCALLTYPE *AddReplacement )( 
             IRegistrarBase * This,
             /* [in] */ LPCOLESTR key,
             /* [in] */ LPCOLESTR item);
         
+        DECLSPEC_XFGVIRT(IRegistrarBase, ClearReplacements)
         HRESULT ( STDMETHODCALLTYPE *ClearReplacements )( 
             IRegistrarBase * This);
         
@@ -281,60 +292,73 @@ EXTERN_C const IID IID_IRegistrar;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IRegistrar * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IRegistrar * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IRegistrar * This);
         
+        DECLSPEC_XFGVIRT(IRegistrarBase, AddReplacement)
         HRESULT ( STDMETHODCALLTYPE *AddReplacement )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR key,
             /* [in] */ LPCOLESTR item);
         
+        DECLSPEC_XFGVIRT(IRegistrarBase, ClearReplacements)
         HRESULT ( STDMETHODCALLTYPE *ClearReplacements )( 
             IRegistrar * This);
         
+        DECLSPEC_XFGVIRT(IRegistrar, ResourceRegisterSz)
         HRESULT ( STDMETHODCALLTYPE *ResourceRegisterSz )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR resFileName,
             /* [in] */ LPCOLESTR szID,
             /* [in] */ LPCOLESTR szType);
         
+        DECLSPEC_XFGVIRT(IRegistrar, ResourceUnregisterSz)
         HRESULT ( STDMETHODCALLTYPE *ResourceUnregisterSz )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR resFileName,
             /* [in] */ LPCOLESTR szID,
             /* [in] */ LPCOLESTR szType);
         
+        DECLSPEC_XFGVIRT(IRegistrar, FileRegister)
         HRESULT ( STDMETHODCALLTYPE *FileRegister )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR fileName);
         
+        DECLSPEC_XFGVIRT(IRegistrar, FileUnregister)
         HRESULT ( STDMETHODCALLTYPE *FileUnregister )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR fileName);
         
+        DECLSPEC_XFGVIRT(IRegistrar, StringRegister)
         HRESULT ( STDMETHODCALLTYPE *StringRegister )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR data);
         
+        DECLSPEC_XFGVIRT(IRegistrar, StringUnregister)
         HRESULT ( STDMETHODCALLTYPE *StringUnregister )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR data);
         
+        DECLSPEC_XFGVIRT(IRegistrar, ResourceRegister)
         HRESULT ( STDMETHODCALLTYPE *ResourceRegister )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR resFileName,
             /* [in] */ UINT nID,
             /* [in] */ LPCOLESTR szType);
         
+        DECLSPEC_XFGVIRT(IRegistrar, ResourceUnregister)
         HRESULT ( STDMETHODCALLTYPE *ResourceUnregister )( 
             IRegistrar * This,
             /* [in] */ LPCOLESTR resFileName,
@@ -523,28 +547,34 @@ EXTERN_C const IID IID_IDocHostUIHandlerDispatch;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IDocHostUIHandlerDispatch * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IDocHostUIHandlerDispatch * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IDocHostUIHandlerDispatch * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ REFIID riid,
@@ -553,6 +583,7 @@ EXTERN_C const IID IID_IDocHostUIHandlerDispatch;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IDocHostUIHandlerDispatch * This,
             /* [annotation][in] */ 
@@ -572,6 +603,7 @@ EXTERN_C const IID IID_IDocHostUIHandlerDispatch;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, ShowContextMenu)
         HRESULT ( STDMETHODCALLTYPE *ShowContextMenu )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ DWORD dwID,
@@ -581,11 +613,13 @@ EXTERN_C const IID IID_IDocHostUIHandlerDispatch;
             /* [in] */ IDispatch *pdispReserved,
             /* [retval][out] */ HRESULT *dwRetVal);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, GetHostInfo)
         HRESULT ( STDMETHODCALLTYPE *GetHostInfo )( 
             IDocHostUIHandlerDispatch * This,
             /* [out][in] */ DWORD *pdwFlags,
             /* [out][in] */ DWORD *pdwDoubleClick);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, ShowUI)
         HRESULT ( STDMETHODCALLTYPE *ShowUI )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ DWORD dwID,
@@ -595,24 +629,30 @@ EXTERN_C const IID IID_IDocHostUIHandlerDispatch;
             /* [in] */ IUnknown *pDoc,
             /* [retval][out] */ HRESULT *dwRetVal);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, HideUI)
         HRESULT ( STDMETHODCALLTYPE *HideUI )( 
             IDocHostUIHandlerDispatch * This);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, UpdateUI)
         HRESULT ( STDMETHODCALLTYPE *UpdateUI )( 
             IDocHostUIHandlerDispatch * This);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, EnableModeless)
         HRESULT ( STDMETHODCALLTYPE *EnableModeless )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ VARIANT_BOOL fEnable);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, OnDocWindowActivate)
         HRESULT ( STDMETHODCALLTYPE *OnDocWindowActivate )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ VARIANT_BOOL fActivate);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, OnFrameWindowActivate)
         HRESULT ( STDMETHODCALLTYPE *OnFrameWindowActivate )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ VARIANT_BOOL fActivate);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, ResizeBorder)
         HRESULT ( STDMETHODCALLTYPE *ResizeBorder )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ long left,
@@ -622,6 +662,7 @@ EXTERN_C const IID IID_IDocHostUIHandlerDispatch;
             /* [in] */ IUnknown *pUIWindow,
             /* [in] */ VARIANT_BOOL fFrameWindow);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, TranslateAccelerator)
         HRESULT ( STDMETHODCALLTYPE *TranslateAccelerator )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ DWORD_PTR hWnd,
@@ -632,26 +673,31 @@ EXTERN_C const IID IID_IDocHostUIHandlerDispatch;
             /* [in] */ DWORD nCmdID,
             /* [retval][out] */ HRESULT *dwRetVal);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, GetOptionKeyPath)
         HRESULT ( STDMETHODCALLTYPE *GetOptionKeyPath )( 
             IDocHostUIHandlerDispatch * This,
             /* [out] */ BSTR *pbstrKey,
             /* [in] */ DWORD dw);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, GetDropTarget)
         HRESULT ( STDMETHODCALLTYPE *GetDropTarget )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ IUnknown *pDropTarget,
             /* [out] */ IUnknown **ppDropTarget);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, GetExternal)
         HRESULT ( STDMETHODCALLTYPE *GetExternal )( 
             IDocHostUIHandlerDispatch * This,
             /* [out] */ IDispatch **ppDispatch);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, TranslateUrl)
         HRESULT ( STDMETHODCALLTYPE *TranslateUrl )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ DWORD dwTranslate,
             /* [in] */ BSTR bstrURLIn,
             /* [out] */ BSTR *pbstrURLOut);
         
+        DECLSPEC_XFGVIRT(IDocHostUIHandlerDispatch, FilterDataObject)
         HRESULT ( STDMETHODCALLTYPE *FilterDataObject )( 
             IDocHostUIHandlerDispatch * This,
             /* [in] */ IUnknown *pDO,
@@ -800,24 +846,29 @@ EXTERN_C const IID IID_IAxWinHostWindow;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAxWinHostWindow * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAxWinHostWindow * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAxWinHostWindow * This);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, CreateControl)
         HRESULT ( STDMETHODCALLTYPE *CreateControl )( 
             IAxWinHostWindow * This,
             /* [in] */ LPCOLESTR lpTricsData,
             /* [in] */ HWND hWnd,
             /* [in] */ IStream *pStream);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, CreateControlEx)
         HRESULT ( STDMETHODCALLTYPE *CreateControlEx )( 
             IAxWinHostWindow * This,
             /* [in] */ LPCOLESTR lpTricsData,
@@ -827,20 +878,24 @@ EXTERN_C const IID IID_IAxWinHostWindow;
             /* [in] */ REFIID riidAdvise,
             /* [in] */ IUnknown *punkAdvise);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, AttachControl)
         HRESULT ( STDMETHODCALLTYPE *AttachControl )( 
             IAxWinHostWindow * This,
             /* [in] */ IUnknown *pUnkControl,
             /* [in] */ HWND hWnd);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, QueryControl)
         HRESULT ( STDMETHODCALLTYPE *QueryControl )( 
             IAxWinHostWindow * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, SetExternalDispatch)
         HRESULT ( STDMETHODCALLTYPE *SetExternalDispatch )( 
             IAxWinHostWindow * This,
             /* [in] */ IDispatch *pDisp);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, SetExternalUIHandler)
         HRESULT ( STDMETHODCALLTYPE *SetExternalUIHandler )( 
             IAxWinHostWindow * This,
             /* [in] */ IDocHostUIHandlerDispatch *pDisp);
@@ -936,24 +991,29 @@ EXTERN_C const IID IID_IAxWinHostWindowLic;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAxWinHostWindowLic * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAxWinHostWindowLic * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAxWinHostWindowLic * This);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, CreateControl)
         HRESULT ( STDMETHODCALLTYPE *CreateControl )( 
             IAxWinHostWindowLic * This,
             /* [in] */ LPCOLESTR lpTricsData,
             /* [in] */ HWND hWnd,
             /* [in] */ IStream *pStream);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, CreateControlEx)
         HRESULT ( STDMETHODCALLTYPE *CreateControlEx )( 
             IAxWinHostWindowLic * This,
             /* [in] */ LPCOLESTR lpTricsData,
@@ -963,24 +1023,29 @@ EXTERN_C const IID IID_IAxWinHostWindowLic;
             /* [in] */ REFIID riidAdvise,
             /* [in] */ IUnknown *punkAdvise);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, AttachControl)
         HRESULT ( STDMETHODCALLTYPE *AttachControl )( 
             IAxWinHostWindowLic * This,
             /* [in] */ IUnknown *pUnkControl,
             /* [in] */ HWND hWnd);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, QueryControl)
         HRESULT ( STDMETHODCALLTYPE *QueryControl )( 
             IAxWinHostWindowLic * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, SetExternalDispatch)
         HRESULT ( STDMETHODCALLTYPE *SetExternalDispatch )( 
             IAxWinHostWindowLic * This,
             /* [in] */ IDispatch *pDisp);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindow, SetExternalUIHandler)
         HRESULT ( STDMETHODCALLTYPE *SetExternalUIHandler )( 
             IAxWinHostWindowLic * This,
             /* [in] */ IDocHostUIHandlerDispatch *pDisp);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindowLic, CreateControlLic)
         HRESULT ( STDMETHODCALLTYPE *CreateControlLic )( 
             IAxWinHostWindowLic * This,
             /* [in] */ LPCOLESTR lpTricsData,
@@ -988,6 +1053,7 @@ EXTERN_C const IID IID_IAxWinHostWindowLic;
             /* [in] */ IStream *pStream,
             /* [in] */ BSTR bstrLic);
         
+        DECLSPEC_XFGVIRT(IAxWinHostWindowLic, CreateControlLicEx)
         HRESULT ( STDMETHODCALLTYPE *CreateControlLicEx )( 
             IAxWinHostWindowLic * This,
             /* [in] */ LPCOLESTR lpTricsData,
@@ -1165,28 +1231,34 @@ EXTERN_C const IID IID_IAxWinAmbientDispatch;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAxWinAmbientDispatch * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAxWinAmbientDispatch * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IAxWinAmbientDispatch * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ REFIID riid,
@@ -1195,6 +1267,7 @@ EXTERN_C const IID IID_IAxWinAmbientDispatch;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IAxWinAmbientDispatch * This,
             /* [annotation][in] */ 
@@ -1214,114 +1287,142 @@ EXTERN_C const IID IID_IAxWinAmbientDispatch;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_AllowWindowlessActivation)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AllowWindowlessActivation )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ VARIANT_BOOL bCanWindowlessActivate);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_AllowWindowlessActivation)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AllowWindowlessActivation )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pbCanWindowlessActivate);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_BackColor)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_BackColor )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ OLE_COLOR clrBackground);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_BackColor)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_BackColor )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ OLE_COLOR *pclrBackground);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_ForeColor)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ForeColor )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ OLE_COLOR clrForeground);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_ForeColor)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ForeColor )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ OLE_COLOR *pclrForeground);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_LocaleID)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LocaleID )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ LCID lcidLocaleID);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_LocaleID)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LocaleID )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ LCID *plcidLocaleID);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_UserMode)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_UserMode )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ VARIANT_BOOL bUserMode);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_UserMode)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UserMode )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pbUserMode);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_DisplayAsDefault)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DisplayAsDefault )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ VARIANT_BOOL bDisplayAsDefault);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_DisplayAsDefault)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DisplayAsDefault )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pbDisplayAsDefault);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_Font)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Font )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ IFontDisp *pFont);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_Font)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Font )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ IFontDisp **pFont);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_MessageReflect)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MessageReflect )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ VARIANT_BOOL bMsgReflect);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_MessageReflect)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MessageReflect )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pbMsgReflect);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_ShowGrabHandles)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ShowGrabHandles )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pbShowGrabHandles);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_ShowHatching)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ShowHatching )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pbShowHatching);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_DocHostFlags)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DocHostFlags )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ DWORD dwDocHostFlags);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_DocHostFlags)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DocHostFlags )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ DWORD *pdwDocHostFlags);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_DocHostDoubleClickFlags)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DocHostDoubleClickFlags )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ DWORD dwDocHostDoubleClickFlags);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_DocHostDoubleClickFlags)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DocHostDoubleClickFlags )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ DWORD *pdwDocHostDoubleClickFlags);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_AllowContextMenu)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AllowContextMenu )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ VARIANT_BOOL bAllowContextMenu);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_AllowContextMenu)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AllowContextMenu )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pbAllowContextMenu);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_AllowShowUI)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AllowShowUI )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ VARIANT_BOOL bAllowShowUI);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_AllowShowUI)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AllowShowUI )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pbAllowShowUI);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_OptionKeyPath)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_OptionKeyPath )( 
             IAxWinAmbientDispatch * This,
             /* [in] */ BSTR bstrOptionKeyPath);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_OptionKeyPath)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_OptionKeyPath )( 
             IAxWinAmbientDispatch * This,
             /* [retval][out] */ BSTR *pbstrOptionKeyPath);
@@ -1484,28 +1585,34 @@ EXTERN_C const IID IID_IAxWinAmbientDispatchEx;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAxWinAmbientDispatchEx * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAxWinAmbientDispatchEx * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             IAxWinAmbientDispatchEx * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ REFIID riid,
@@ -1514,6 +1621,7 @@ EXTERN_C const IID IID_IAxWinAmbientDispatchEx;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IAxWinAmbientDispatchEx * This,
             /* [annotation][in] */ 
@@ -1533,118 +1641,147 @@ EXTERN_C const IID IID_IAxWinAmbientDispatchEx;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_AllowWindowlessActivation)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AllowWindowlessActivation )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ VARIANT_BOOL bCanWindowlessActivate);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_AllowWindowlessActivation)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AllowWindowlessActivation )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ VARIANT_BOOL *pbCanWindowlessActivate);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_BackColor)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_BackColor )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ OLE_COLOR clrBackground);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_BackColor)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_BackColor )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ OLE_COLOR *pclrBackground);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_ForeColor)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_ForeColor )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ OLE_COLOR clrForeground);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_ForeColor)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ForeColor )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ OLE_COLOR *pclrForeground);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_LocaleID)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_LocaleID )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ LCID lcidLocaleID);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_LocaleID)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_LocaleID )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ LCID *plcidLocaleID);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_UserMode)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_UserMode )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ VARIANT_BOOL bUserMode);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_UserMode)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UserMode )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ VARIANT_BOOL *pbUserMode);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_DisplayAsDefault)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DisplayAsDefault )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ VARIANT_BOOL bDisplayAsDefault);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_DisplayAsDefault)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DisplayAsDefault )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ VARIANT_BOOL *pbDisplayAsDefault);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_Font)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Font )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ IFontDisp *pFont);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_Font)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Font )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ IFontDisp **pFont);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_MessageReflect)
         /* [id][helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_MessageReflect )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ VARIANT_BOOL bMsgReflect);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_MessageReflect)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MessageReflect )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ VARIANT_BOOL *pbMsgReflect);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_ShowGrabHandles)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ShowGrabHandles )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ VARIANT_BOOL *pbShowGrabHandles);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_ShowHatching)
         /* [id][helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ShowHatching )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ VARIANT_BOOL *pbShowHatching);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_DocHostFlags)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DocHostFlags )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ DWORD dwDocHostFlags);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_DocHostFlags)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DocHostFlags )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ DWORD *pdwDocHostFlags);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_DocHostDoubleClickFlags)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_DocHostDoubleClickFlags )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ DWORD dwDocHostDoubleClickFlags);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_DocHostDoubleClickFlags)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_DocHostDoubleClickFlags )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ DWORD *pdwDocHostDoubleClickFlags);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_AllowContextMenu)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AllowContextMenu )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ VARIANT_BOOL bAllowContextMenu);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_AllowContextMenu)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AllowContextMenu )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ VARIANT_BOOL *pbAllowContextMenu);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_AllowShowUI)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_AllowShowUI )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ VARIANT_BOOL bAllowShowUI);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_AllowShowUI)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AllowShowUI )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ VARIANT_BOOL *pbAllowShowUI);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, put_OptionKeyPath)
         /* [helpstring][propput] */ HRESULT ( STDMETHODCALLTYPE *put_OptionKeyPath )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ BSTR bstrOptionKeyPath);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatch, get_OptionKeyPath)
         /* [helpstring][propget] */ HRESULT ( STDMETHODCALLTYPE *get_OptionKeyPath )( 
             IAxWinAmbientDispatchEx * This,
             /* [retval][out] */ BSTR *pbstrOptionKeyPath);
         
+        DECLSPEC_XFGVIRT(IAxWinAmbientDispatchEx, SetAmbientDispatch)
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *SetAmbientDispatch )( 
             IAxWinAmbientDispatchEx * This,
             /* [in] */ IDispatch *pDispatch);
@@ -1812,21 +1949,26 @@ EXTERN_C const IID IID_IInternalConnection;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IInternalConnection * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IInternalConnection * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IInternalConnection * This);
         
+        DECLSPEC_XFGVIRT(IInternalConnection, AddConnection)
         HRESULT ( STDMETHODCALLTYPE *AddConnection )( 
             IInternalConnection * This);
         
+        DECLSPEC_XFGVIRT(IInternalConnection, ReleaseConnection)
         HRESULT ( STDMETHODCALLTYPE *ReleaseConnection )( 
             IInternalConnection * This);
         
@@ -1923,7 +2065,7 @@ ATLAPI_(BOOL) AtlAxWinInit();
 ATLAPI AtlAxGetHost(HWND h, IUnknown** pp);
 ATLAPI AtlAxGetControl(HWND h, IUnknown** pp);
 
-}; //namespace ATL
+} //namespace ATL
 
 
 
@@ -1958,18 +2100,22 @@ EXTERN_C const IID IID_IAccessibleProxy;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAccessibleProxy * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAccessibleProxy * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAccessibleProxy * This);
         
+        DECLSPEC_XFGVIRT(IAccessibleProxy, SetServer)
         HRESULT ( STDMETHODCALLTYPE *SetServer )( 
             IAccessibleProxy * This,
             /* [in] */ IAccessible *pAccessible,
@@ -2045,26 +2191,32 @@ EXTERN_C const IID IID_IAccessibleServer;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAccessibleServer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAccessibleServer * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAccessibleServer * This);
         
+        DECLSPEC_XFGVIRT(IAccessibleServer, SetProxy)
         HRESULT ( STDMETHODCALLTYPE *SetProxy )( 
             IAccessibleServer * This,
             /* [in] */ IAccessibleProxy *pUnknown);
         
+        DECLSPEC_XFGVIRT(IAccessibleServer, GetHWND)
         HRESULT ( STDMETHODCALLTYPE *GetHWND )( 
             IAccessibleServer * This,
             /* [out] */ HWND *phWnd);
         
+        DECLSPEC_XFGVIRT(IAccessibleServer, GetEnumVariant)
         HRESULT ( STDMETHODCALLTYPE *GetEnumVariant )( 
             IAccessibleServer * This,
             /* [out] */ IEnumVARIANT **ppEnumVariant);
