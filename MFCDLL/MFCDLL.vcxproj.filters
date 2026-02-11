@@ -2328,6 +2328,9 @@
     <None Include="$(VCToolsInstallDir)\atlmfc\include\afxwinforms.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="..\..\..\..\Build\KK++\Bin\Debug\x64\MFCDLL.def">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="$(VCToolsInstallDir)\atlmfc\include\atliface.idl">
