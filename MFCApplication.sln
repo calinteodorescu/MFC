@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29911.84
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33209.295
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCApplication", "MFCApplication\MFCApplication.vcxproj", "{D6BA1DFD-5885-4FDB-8ABF-FD21442DE0E9}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -22,6 +22,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCres", "MFCres\MFCres.vcxproj", "{CD8F1503-7B21-49BC-A692-7C4B1EE80B75}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Circ", "circ\circ.vcxproj", "{1F8BF540-BD77-4680-B789-43BF11365F53}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MFCMLIB", "MFCMLIB\MFCMLIB.vcxproj", "{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,6 +102,18 @@ Global
 		{1F8BF540-BD77-4680-B789-43BF11365F53}.Release|x64.Build.0 = Release|x64
 		{1F8BF540-BD77-4680-B789-43BF11365F53}.Release|x86.ActiveCfg = Release|Win32
 		{1F8BF540-BD77-4680-B789-43BF11365F53}.Release|x86.Build.0 = Release|Win32
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Debug|ARM64.Build.0 = Debug|ARM64
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Debug|x64.ActiveCfg = Debug|x64
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Debug|x64.Build.0 = Debug|x64
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Debug|x86.ActiveCfg = Debug|Win32
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Debug|x86.Build.0 = Debug|Win32
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Release|ARM64.ActiveCfg = Release|ARM64
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Release|ARM64.Build.0 = Release|ARM64
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Release|x64.ActiveCfg = Release|x64
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Release|x64.Build.0 = Release|x64
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Release|x86.ActiveCfg = Release|Win32
+		{F11AF5AF-C3A5-4A34-9BBB-CF8EF5D488F4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

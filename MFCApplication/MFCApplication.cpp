@@ -13,7 +13,7 @@
 
 #include "MFCApplicationDoc.h"
 #include "MFCApplicationView.h"
-
+#include "CAboutBox.h"
 #include "DateDlg.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -193,9 +193,9 @@ END_MESSAGE_MAP()
 // App command to run the dialog
 void CMFCApplicationApp::OnAppAbout()
 {
-	CAboutDlg aboutDlg;
-	aboutDlg.DoModal();
+	ShowAboutBox();
 }
+
 
 // CMFCApplicationApp customization load/save methods
 
@@ -238,7 +238,7 @@ void CAboutDlg::OnBnClickedButton1()
 
 	catch (...)
 	{
-		::AfxMessageBox( "Exception during loading of Active X Object!" );
+		AfxMessageBox(L"Exception during loading of Active X Object!");
 	}
 
 }

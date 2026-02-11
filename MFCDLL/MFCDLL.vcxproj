@@ -18,18 +18,44 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v145</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v145</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -55,6 +81,51 @@
     <OutDir>D:\Build\$(SolutionName)\Bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>D:\Build\$(SolutionName)\Projects\$(ProjectName)\$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <LinkIncremental>false</LinkIncremental>
+    <PreLinkEventUseInBuild>true</PreLinkEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_AFX_DISABLE_DEPRECATED;_WINSOCK_DEPRECATED_NO_WARNINGS;_USING_V110_SDK71_;_AFXDLL;_MFC_BLD;_MFC_DLL_BLD;_AFX_MONOLITHIC;_AFX_CORE_IMPL;_AFX_OLE_IMPL;_AFX_DB_IMPL;_AFX_NET_IMPL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>.;.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
+      <ModuleDefinitionFile>$(OutDir)\MFCDLL.def</ModuleDefinitionFile>
+      <MapExports>
+      </MapExports>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>LANG=deu;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0407</Culture>
+    </ResourceCompile>
+    <Lib>
+      <AdditionalDependencies>htmlhelp.lib</AdditionalDependencies>
+    </Lib>
+    <PreLinkEvent>
+      <Command>cd $(ConfigurationName)
+setlocal EnableDelayedExpansion
+set LIST_OBJ=
+for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
+ $(SolutionDir)$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+      <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -87,7 +158,72 @@
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(SolutionDir)$(Platform)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+      <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_AFX_DISABLE_DEPRECATED;_WINSOCK_DEPRECATED_NO_WARNINGS;_USING_V110_SDK71_;_AFXDLL;_MFC_BLD;_MFC_DLL_BLD;_AFX_MONOLITHIC;_AFX_CORE_IMPL;_AFX_OLE_IMPL;_AFX_DB_IMPL;_AFX_NET_IMPL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>.;.\include;C:\Program Files (x86)\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(SolutionDir)\$(Platform)\$(Configuration)\MFCDLL.def</ModuleDefinitionFile>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
+      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+    </Link>
+    <PreLinkEvent>
+      <Command>cd $(Platform)\$(ConfigurationName)
+setlocal EnableDelayedExpansion
+set LIST_OBJ=
+for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
+$(SolutionDir)\x64\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+      <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_AFX_DISABLE_DEPRECATED;_WINSOCK_DEPRECATED_NO_WARNINGS;_USING_V110_SDK71_;_AFXDLL;_MFC_BLD;_MFC_DLL_BLD;_AFX_MONOLITHIC;_AFX_CORE_IMPL;_AFX_OLE_IMPL;_AFX_DB_IMPL;_AFX_NET_IMPL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>.;.\include;C:\Program Files (x86)\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(OutDir)\MFCDLL.def</ModuleDefinitionFile>
+      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>LANG=deu;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <PreLinkEvent>
+      <Command>cd $(ConfigurationName)
+setlocal EnableDelayedExpansion
+set LIST_OBJ=
+for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
+$(SolutionDir)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -123,7 +259,39 @@ $(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(SolutionDir)$(Platform)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+      <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_AFX_DISABLE_DEPRECATED;_WINSOCK_DEPRECATED_NO_WARNINGS;_USING_V110_SDK71_;_AFXDLL;_MFC_BLD;_MFC_DLL_BLD;_AFX_MONOLITHIC;_AFX_CORE_IMPL;_AFX_OLE_IMPL;_AFX_DB_IMPL;_AFX_NET_IMPL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>.;.\include;C:\Program Files (x86)\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>UxTheme.lib;windowscodecs.lib;Htmlhelp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(SolutionDir)\$(Platform)\$(Configuration)\MFCDLL.def</ModuleDefinitionFile>
+      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+    </Link>
+    <PreLinkEvent>
+      <Command>cd $(Platform)\$(ConfigurationName)
+setlocal EnableDelayedExpansion
+set LIST_OBJ=
+for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
+$(SolutionDir)\x64\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -438,6 +606,7 @@ $(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
     <ClInclude Include="$(VCToolsInstallDir)\atlmfc\src\mfc\stdafx.h" />
     <ClInclude Include="$(VCToolsInstallDir)\atlmfc\src\mfc\winhand_.h" />
     <ClInclude Include="$(VCToolsInstallDir)\atlmfc\verstamp.h" />
+    <ClInclude Include="ARM64\arm64params.h" />
     <ClInclude Include="dispimpl_supporting.h" />
   </ItemGroup>
   <ItemGroup>
@@ -805,7 +974,6 @@ $(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\olecnvrt.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\oleconn.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\oledata.cpp" />
-    <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\oledisp1.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\oledisp2.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\oledlgs1.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\oledlgs2.cpp" />
@@ -903,6 +1071,16 @@ $(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\winsplit.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\winstr.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\winutil.cpp" />
+    <ClCompile Include="oledisp1_arm64.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\oledisp1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(VCToolsInstallDir)\atlmfc\include\ver_.rc">
@@ -950,12 +1128,15 @@ $(OutDir)dumpexts.exe -o $(OutDir)MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
     <CustomBuild Include="$(VCToolsInstallDir)\atlmfc\src\mfc\x64\olecall_.s">
       <GeneratePreprocessedSourceListing Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GeneratePreprocessedSourceListing>
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl.exe /EP "%(Identity)" &gt; %(Filename).asm</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl.exe /EP "%(Identity)" &gt; $(IntDir)\%(Filename).asm</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)\%(Filename).asm</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl.exe /EP "%(Identity)" &gt; %(Filename).asm</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl.exe /EP "%(Identity)" &gt; $(IntDir)%(Filename).asm</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).asm</Outputs>
     </CustomBuild>
-    <MASM Include="olecall_.asm" />
+    <MASM Include="olecall_.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </MASM>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dumpexts\dumpexts.vcxproj">
