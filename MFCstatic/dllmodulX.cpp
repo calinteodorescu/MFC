@@ -87,7 +87,7 @@ BOOL WINAPI InternalDllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /*lpRese
 #endif
 
 		// Initialize DLL's instance(/module) not the app's
-		if (!AfxWinInit(hInstance, NULL, const_cast<LPTSTR>(_T("")), 0))
+		if (!AfxWinInit(hInstance, NULL, _T(""), 0))
 		{
 			AfxWinTerm();
 			goto Cleanup;       // Init Failed

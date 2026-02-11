@@ -158,7 +158,7 @@ for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(SolutionDir)$(Platform)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(OutDir)\dumpexts.exe -o $(OutDir)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -259,7 +259,7 @@ $(SolutionDir)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Configuratio
 setlocal EnableDelayedExpansion
 set LIST_OBJ=
 for %%f in (*.obj) do set LIST_OBJ=!LIST_OBJ! %%f 
-$(SolutionDir)$(Platform)\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform)\\$(ConfigurationName)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
+$(OutDir)\dumpexts.exe -o $(OutDir)\MFCDLL.def  MFCDLL.dll %LIST_OBJ%</Command>
       <Message>Create MFCDLL.def file (switch off LTCG before running this)</Message>
     </PreLinkEvent>
   </ItemDefinitionGroup>
@@ -770,8 +770,8 @@ $(SolutionDir)\x64\$(ConfigurationName)\dumpexts.exe -o $(SolutionDir)$(Platform
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\afxtagmanager.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\afxtaskdialog.cpp">
       <ExcludedFromBuild Condition="'$(CharacterSet)'=='MultiByte'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\afxtaskspane.cpp" />
     <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfc\afxtaskspaneframewnd.cpp" />
