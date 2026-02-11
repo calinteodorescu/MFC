@@ -79,16 +79,6 @@ extern "C"{
 #endif 
 
 
-/* interface __MIDL_itf_circ_0000_0000 */
-/* [local] */ 
-
-#pragma external_header(push)
-#pragma external_header(pop)
-
-
-extern RPC_IF_HANDLE __MIDL_itf_circ_0000_0000_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_circ_0000_0000_v0_0_s_ifspec;
-
 
 #ifndef __CircLib_LIBRARY_DEFINED__
 #define __CircLib_LIBRARY_DEFINED__

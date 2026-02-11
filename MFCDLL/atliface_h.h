@@ -6,7 +6,7 @@
  /* File created by MIDL compiler version 8.01.0628 */
 /* at Mon Jan 18 22:14:07 2038
  */
-/* Compiler settings for C:\Tools\Microsoft\Visual Studio\2026.Enterprise\VC\Tools\MSVC\14.29.30133\\atlmfc\include\atliface.idl:
+/* Compiler settings for C:\Tools\Microsoft\Visual Studio\2026.Enterprise\VC\Tools\MSVC\14.50.35717\\atlmfc\include\atliface.idl:
     Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0628 
     protocol : all , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
@@ -136,8 +136,6 @@ extern "C"{
 /* [local] */ 
 
 EXTERN_C const CLSID CLSID_Registrar;
-#pragma external_header(push)
-#pragma external_header(pop)
 
 
 extern RPC_IF_HANDLE __MIDL_itf_atliface_0000_0000_v0_0_c_ifspec;
@@ -2067,7 +2065,7 @@ ATLAPI_(BOOL) AtlAxWinInit();
 ATLAPI AtlAxGetHost(HWND h, IUnknown** pp);
 ATLAPI AtlAxGetControl(HWND h, IUnknown** pp);
 
-}; //namespace ATL
+} //namespace ATL
 
 
 

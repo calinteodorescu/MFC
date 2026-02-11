@@ -18,7 +18,7 @@
     <ProjectGuid>{CD8F1503-7B21-49BC-A692-7C4B1EE80B75}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MFCres</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
