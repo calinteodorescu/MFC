@@ -26,9 +26,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="afxwfrminl.cpp">
-      <Filter>Resource Files\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
@@ -38,7 +35,10 @@
     <ClCompile Include="wfrmsite.cpp">
       <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="wfrmview.cpp">
+    <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfcm\afxwfrminl.cpp">
+      <Filter>Resource Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(VCToolsInstallDir)\atlmfc\src\mfcm\wfrmview.cpp">
       <Filter>Resource Files\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
